@@ -26,15 +26,19 @@ const registerUser = async (req, res) => {
 const login = async (req, res) => {
     try {
 
-        // package user to exclude password or hashed password
-
         // send user data back in response 
+
+        // res.status(201).json({ message: "success", 
+        // user: {
+        //     username: req.body.username,
+        //     email: req.body.email
+        // }});
 
         res.status(201).json({ message: "success", 
         user: {
-            username: req.body.username,
-            email: req.body.email
-        }})
+            username: req.user.username,
+            email: req.user.email
+        }});
         
     } catch (error) {
         res.status(501).json({ errorMsg: error.message, error: error })

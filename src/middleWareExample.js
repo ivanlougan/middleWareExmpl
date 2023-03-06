@@ -11,7 +11,7 @@ app.use(express.json());
 app.use(userRouter);
 
 const syncTables = () => {
-    User.sync({ alter: true });
+    User.sync({ alter: true, force: false });
 }
 
 app.get("/health", (req, res) => {
